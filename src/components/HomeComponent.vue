@@ -169,7 +169,7 @@
 import affineHelper from "../cipher/affine/helper";
 import affine from "../cipher/affine";
 import vigenere from "../cipher/vigenere";
-const { textToIntList, intListToText } = require("../cipher/helper");
+import { textToIntList, intListToText } from "../cipher/helper";
 
 export default {
   data() {
@@ -179,19 +179,19 @@ export default {
       withSpasi: false,
       ciphertext: "",
       plaintext: "",
+      selectedAlgoritme: "",
+      isValid: true,
+      encryptResult: "",
       key: "",
+      isAffine: false,
       keyAffine: {
         key1: "",
         key2: "",
       },
-      isAffine: false,
       algoritme: [
         { code: "vigenere", name: "Simple Vigenere Cipher" },
         { code: "affine", name: "Affine Cipher" },
       ],
-      selectedAlgoritme: "",
-      isValid: true,
-      encryptResult: "",
     };
   },
 

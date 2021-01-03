@@ -1,4 +1,3 @@
-
 const multiply = (a, b, mod) => {
   return ((a % mod) * (b % mod)) % mod;
 }
@@ -26,7 +25,6 @@ const power = (a, b, mod) => {
   return res;
 }
 
-
 const gcd = (a, b) => {
   return (b === 0 ? a : gcd(b, a % b));
 }
@@ -41,7 +39,6 @@ const inverse = (a, mod) => {
   return -1;
 }
 
-
 const wordToNum = (word) => {
   if (word >= 'A' && word <= 'Z') {
     return word.charCodeAt(0) - 'A'.charCodeAt(0);
@@ -53,7 +50,6 @@ const wordToNum = (word) => {
 const numToWord = (num) => {
   return String.fromCharCode('a'.charCodeAt(0) + num);
 }
-
 
 module.exports = {
   multiply,
