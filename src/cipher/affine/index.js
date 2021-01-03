@@ -44,7 +44,7 @@ const decrypt = (cipher, keyM, keyB) => {
   return resultDecrypt;
 }
 
-export {
+module.exports = {
   encrypt,
   decrypt
 }

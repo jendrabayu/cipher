@@ -54,7 +54,8 @@ const numToWord = (num) => {
   return String.fromCharCode('a'.charCodeAt(0) + num);
 }
 
-export {
+
+module.exports = {
   multiply,
   add,
   minus,

@@ -155,7 +155,9 @@
             ></textarea>
           </div>
           <div class="form-group">
-            <button class="btn btn-success">Download</button>
+            <button @click="download()" class="btn btn-success">
+              Download
+            </button>
           </div>
         </div>
       </div>
@@ -164,10 +166,8 @@
 </template>
 
 <script>
-// import hillHelper from "../cipher/hill";
 import affineHelper from "../cipher/affine/helper";
 import affine from "../cipher/affine";
-
 import vigenere from "../cipher/vigenere";
 const { textToIntList, intListToText } = require("../cipher/helper");
 
@@ -187,7 +187,6 @@ export default {
       isAffine: false,
       algoritme: [
         { code: "vigenere", name: "Simple Vigenere Cipher" },
-        { code: "hill", name: "Hill Cipher" },
         { code: "affine", name: "Affine Cipher" },
       ],
       selectedAlgoritme: "",
@@ -220,6 +219,7 @@ export default {
             this.keyAffine.key1,
             this.keyAffine.key2
           );
+
           this.resultText = !this.withSpasi
             ? encryptedText
             : this.groupingText(encryptedText);
@@ -233,32 +233,55 @@ export default {
           this.resultText = !this.withSpasi
             ? encryptedText
             : this.groupingText(encryptedText);
-        } else if (this.selectedAlgoritme === "hill") {
-          //
         }
       } else if (this.isValid && !this.isEncrypt) {
         if (this.selectedAlgoritme === "affine") {
-          const encryptedText = affine.decrypt(
-            this.plaintext,
+          const decryptedText = affine.decrypt(
+            this.ciphertext,
             this.keyAffine.key1,
             this.keyAffine.key2
           );
+
           this.resultText = !this.withSpasi
-            ? encryptedText
-            : this.groupingText(encryptedText);
+            ? decryptedText
+            : this.groupingText(decryptedText);
         } else if (this.selectedAlgoritme === "vigenere") {
           const encryptedText = intListToText(
             vigenere.decrypt(
               textToIntList(this.plaintext),
               textToIntList(this.key)
             )
-          ); 
+          );
           this.resultText = !this.withSpasi
             ? encryptedText
             : this.groupingText(encryptedText);
-        } else if (this.selectedAlgoritme === "hill") {
-          //
         }
+      }
+    },
+    download() {
+      const filename = Date.now() + ".txt";
+      this.downloadFile(filename, [this.resultText], "text/plain");
+    },
+    downloadFile(filename, data, type) {
+      const file = new Blob(data, { type });
+
+      if (window.navigator.msSaveOrOpenBlob)
+        // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+      else {
+        // Others
+        const a = document.createElement("a");
+        const url = URL.createObjectURL(file);
+
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+
+        setTimeout(function () {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 0);
       }
     },
     groupingText(text) {
