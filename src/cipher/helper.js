@@ -5,14 +5,14 @@ exports.mod = (n, m) => {
 };
 
 
-// Tests whether the specified character code is an uppercase letter.
+// Menguji apakah kode karakter yang ditentukan adalah huruf besar.
 exports.isUppercase = (c) => {
-  return 65 <= c && c <= 90; // 65 is character code for 'A'. 90 is 'Z'.
+  return 65 <= c && c <= 90; // 65 adalah code untuk karakter 'A'. 90 untuk 'Z'.
 };
 
-// Tests whether the specified character code is a lowercase letter.
+// Menguji apakah kode karakter yang ditentukan adalah huruf kecil.
 exports.isLowercase = (c) => {
-  return 97 <= c && c <= 122; // 97 is character code for 'a'. 122 is 'z'.
+  return 97 <= c && c <= 122; // 97 adalah code untuk karakter 'a'. 122 untuk 'z'.
 };
 
 exports.toLowerCase = (arrayInt) => {
