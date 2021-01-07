@@ -15,7 +15,7 @@ exports.encrypt = (plaintext, key) => {
       const p = char - 97;
       const k = key[j % key.length];
 
-      output.push(mod(p + k, 26) + 65); // Add 65 to make it upper case
+      output.push(mod(p + k, 26) + 65); // ditambah 65 untuk membuat chipper text menjadi huruf besar
       j++;
     }
   }
@@ -35,7 +35,7 @@ exports.decrypt = (cipher, key) => {
       const c = char - 65;
       const k = key[j % key.length];
 
-      output.push(mod(c - k, 26) + 97); // Add 97 to make it lower case
+      output.push(mod(c - k, 26) + 97); // ditambah 97 untuk membuat chipper text menjadi huruf besar
       j++;
     }
   }
