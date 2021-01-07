@@ -1,9 +1,10 @@
 const { mod, isLowercase, isUppercase } = require("../helper");
 
-/*
- * Returns the result the Vigenère encryption on the given text with the given key.
- */
+
+//method vigenere dengan parameter plaintext dan kunci
 exports.encrypt = (plaintext, key) => {
+
+  //output hasil enkripsi berupa
   const output = [];
   let j = 0;
 
@@ -18,6 +19,7 @@ exports.encrypt = (plaintext, key) => {
       j++;
     }
   }
+
   return output;
 };
 

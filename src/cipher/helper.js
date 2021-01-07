@@ -1,9 +1,6 @@
-// const { det } = require("mathjs");
-
 exports.mod = (n, m) => {
   return ((n % m) + m) % m;
 };
-
 
 // Tests whether the specified character code is an uppercase letter.
 exports.isUppercase = (c) => {
