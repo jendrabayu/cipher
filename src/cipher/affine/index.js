@@ -1,11 +1,12 @@
 const helper = require('./helper');
 
-const MAX_BLOCK = 26;
+const MAX_BLOCK = 26; //26 karakter alafabet
 
 const encrypt = (plaintext, keyM, keyB) => {
   if (helper.gcd(keyM, MAX_BLOCK) != 1) {
     return new Error(`Can't use ${keyM} as the key!`);
   }
+  
   plaintext = plaintext.replace(/[^a-zA-Z]/gi, '').trim();
 
   let resultEncrypt = '';

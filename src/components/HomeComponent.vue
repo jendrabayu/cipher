@@ -14,7 +14,7 @@
     </nav>
     <div class="container">
       <div class="card">
-        <div class="card-header">Traditional Cipher</div>
+        <div class="card-header">Cipher Tradisional</div>
         <div class="card-body">
           <div class="form-group">
             <label for="algoritme">Pilih Jenis Cipher</label>
@@ -85,7 +85,7 @@
           </div>
 
           <div v-show="!isValid" class="alert alert-danger" role="alert">
-            Invalid Key
+            Key Tidak Valid
           </div>
 
           <div v-if="!isAffine" class="form-group">
@@ -157,7 +157,7 @@
               :disabled="!selectedAlgoritme"
               @click="process()"
             >
-              Process
+              Proses
             </button>
           </div>
 
@@ -181,7 +181,7 @@
       </div>
     </div>
     <div id="footer" class="bg-success">
-      <center>Copyright &copy; 2021</center>
+      <center>Copyright &copy; VignAff Crypto 2021</center>
     </div>
   </div>
 </template>
@@ -210,7 +210,7 @@ export default {
         key2: "",
       },
       algoritme: [
-        { code: "vigenere", name: "Simple Vigenere Cipher" },
+        { code: "vigenere", name: "Vigenere Cipher" },
         { code: "affine", name: "Affine Cipher" },
       ],
     };
@@ -285,12 +285,9 @@ export default {
     },
     downloadFile(filename, data, type) {
       const file = new Blob(data, { type });
-
       if (window.navigator.msSaveOrOpenBlob)
-        // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
       else {
-        // Others
         const a = document.createElement("a");
         const url = URL.createObjectURL(file);
 

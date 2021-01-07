@@ -2,16 +2,19 @@ exports.mod = (n, m) => {
   return ((n % m) + m) % m;
 };
 
-// Tests whether the specified character code is an uppercase letter.
+// Apakah kode karakter adalah huruf besar.
 exports.isUppercase = (c) => {
-  return 65 <= c && c <= 90; // 65 adalah code untuk karakter 'A'. 90 untuk 'Z'.
+  // 65 adalah code untuk karakter 'A'. 90 untuk 'Z' (ASCII).
+  return 65 <= c && c <= 90;
 };
 
-// Menguji apakah kode karakter yang ditentukan adalah huruf kecil.
+// Apakah kode karakter adalah huruf kecil.
 exports.isLowercase = (c) => {
-  return 97 <= c && c <= 122; // 97 adalah code untuk karakter 'a'. 122 untuk 'z'.
+  // 97 adalah code untuk karakter 'a'. 122 untuk 'z'.
+  return 97 <= c && c <= 122;
 };
 
+//Mengubah code karakter (ASCII) menjadi huruf kecil.
 exports.toLowerCase = (arrayInt) => {
   const output = [];
   arrayInt.forEach((n) => {
@@ -21,6 +24,7 @@ exports.toLowerCase = (arrayInt) => {
   return output;
 };
 
+//mengubah karakter biasa menjadi code ASCII & disimpan dalam array.
 exports.textToIntList = (text) => {
   const intList = [];
 
@@ -31,9 +35,7 @@ exports.textToIntList = (text) => {
   return intList;
 };
 
-/*
- * Returns the list of character from given list of integer.
- */
+//mengubah code ASCII menjadi karakter biasa & disimpan dalam array.
 const intListToCharList = (intList) => {
   const charList = [];
 
@@ -44,6 +46,7 @@ const intListToCharList = (intList) => {
   return charList;
 };
 
+//mengubah array (berisi code ASCII) menjadi satu text "string"
 exports.intListToText = (intList) => {
   return intListToCharList(intList).join("");
 };

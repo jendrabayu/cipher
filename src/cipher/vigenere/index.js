@@ -4,7 +4,7 @@ const { mod, isLowercase, isUppercase } = require("../helper");
 //method vigenere dengan parameter plaintext dan kunci
 exports.encrypt = (plaintext, key) => {
 
-  //output hasil enkripsi berupa
+  //output hasil enkripsi berupa angka
   const output = [];
   let j = 0;
 
