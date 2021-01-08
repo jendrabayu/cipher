@@ -163,7 +163,8 @@
 
           <div v-if="resultText">
             <div class="form-group">
-              <label for="result-text">Hasil Enkripsi</label>
+              <label v-if="isEncrypt" for="result-text">Hasil Enkripsi</label>
+              <label v-if="!isEncrypt" for="result-text">Hasil Dekripsi</label>
               <textarea
                 id="result-text"
                 rows="3"
